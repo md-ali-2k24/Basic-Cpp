@@ -1,4 +1,4 @@
-//Optimas way of Kadanes Algorithum
+//Maximum Subarray Sum - Kadane's Algorithm
 #include <iostream>
 #include <vector>
 #include <climits>

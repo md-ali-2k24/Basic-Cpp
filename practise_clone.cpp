@@ -332,7 +332,10 @@ int main()
     return 0;
 }
     //0(n2)
-//Optimas way of Kadanes Algorithum
+
+
+//Maximum Subarray Sum - Kadane's Algorithm
+
 #include <iostream>
 #include <vector>
 #include <climits>
