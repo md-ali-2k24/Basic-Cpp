@@ -90,7 +90,9 @@ int main() {
 }
 
 
-    Reverce an array#include <iostream>
+//Reverce an array
+
+#include <iostream>
 using namespace std;
 int reverseArray(int size, int arr[])
 {
@@ -125,7 +127,8 @@ int main()
 
     return 0;
 }
-Sting Inputs and Print name
+
+//Sting Inputs and Print name
 
 #include <iostream>
 #include <vector>
@@ -232,9 +235,51 @@ int main()
 }
     //Time coplexsity is 0(n)
 
+//Fine the pair of two sum 
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> pairSum(vector<int> nums, int target) {
+    vector<int> answer;
+    int i = 0, j = nums.size() - 1;
+
+    while (i < j) {
+        int sum = nums[i] + nums[j];
+
+        if (sum < target) {
+            i++;  // move left pointer forward
+        }
+        else if (sum > target) {
+            j--;  // move right pointer backward
+        }
+        else {
+            answer.push_back(i);
+            answer.push_back(j);
+            break;   // ✅ exit once found
+        }
+    }
+
+    return answer;
+}
+
+int main() {
+    vector<int> nums = {2, 7, 11, 15};
+    int target = 13;
+
+    vector<int> answer = pairSum(nums, target);
+
+    if (!answer.empty()) {
+        cout << answer[0] << ", " << answer[1] << endl;  // expected: 0, 2
+    } else {
+        cout << "No pair found!" << endl;
+    }
+
+    return 0;
+}
 
 
-Printing the SUB Arrays 
+//Printing the SUB Arrays 
 
 #include <iostream>
 #include <vector>
@@ -386,9 +431,7 @@ int main(){
     //0(n)
 
 
-
 //Return pair in sorted array with target sum
-
 
 vector<int> pairSum(vector<int> numbers, int target){
     vector<int> answer;
@@ -537,11 +580,12 @@ int main() {
 }
     //0(n log n)
 
+
+// Function to find majority element using Boyer-Moore algorithm
 #include <iostream>
 #include <vector>
 using namespace std;
 
-// Function to find majority element using Boyer-Moore algorithm
 int majorityElement(vector<int>& vect) {
     int frequency = 0, answer = 0;
 
@@ -556,19 +600,7 @@ int majorityElement(vector<int>& vect) {
             frequency--;
         }
     }
-
-    // Verify if it is actually a majority
-
-    int count = 0;
-    for (int num : vect) {
-        if (num == answer) count++;
-    }
-
-    if (count > vect.size() / 2) {
         return answer;
-    } else {
-        return -1; // No majority element
-    }
 }
 
 int main() {
@@ -595,9 +627,8 @@ int main() {
     //0(n)
 
 
-    //Contaier with most water 
-
-    #include <bits/stdc++.h>
+//Contaier with most water 
+#include <bits/stdc++.h>
 using namespace std;
 
 int maxArea(vector<int> &height)
