@@ -17,6 +17,21 @@ int majorityElement(vector<int>& vect) {
             frequency--;
         }
     }
+
+    // Chacking the Moore's Algorithm
+    int count = 0;
+    for(int val : vect){
+        if (val == answer)
+        {
+            count++;
+        }
+    }
+
+    if(count > vect.size()/2){
+        return answer;
+    }else{
+        return -1;
+    }
     return answer;
 }
 
