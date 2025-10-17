@@ -631,8 +631,7 @@ int main() {
 #include <bits/stdc++.h>
 using namespace std;
 
-int maxArea(vector<int> &height)
-{
+int maxArea(vector<int> &height){
     int maxWater = 0;
     int lp = 0, rp = height.size() - 1;
 
@@ -660,7 +659,7 @@ int main()
 }
 
 
- //Product of Array Except self 
+//Product of Array Except self 
  #include <bits/stdc++.h>
 using namespace std;
 

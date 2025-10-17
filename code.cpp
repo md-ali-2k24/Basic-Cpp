@@ -1,35 +1,35 @@
-#include <iostream>
+//Product of Array Except self 
+#include <bits/stdc++.h>
 using namespace std;
 
-double myPow(double x, int n) {
-    if (n == 0) return 1.0;
-    if (x == 0) return 0.0;
-    if (x == 1) return 1.0;
-    if (x == -1 && n % 2 == 0) return 1.0;
-    if (x == -1 && n % 2 != 0) return -1.0;
+vector<int> productExceptSelf(vector<int> &nums){
+    int n = nums.size();
+    vector<int> ans(n, 1);
 
-    long binForm = n;
-    double answer = 1;
-
-    if (binForm < 0) {
-        x = 1 / x;
-        binForm = -binForm;
+    // prefix
+    for (int i = 1; i < n; i++) {
+        ans[i] = ans[i - 1] * nums[i - 1];
     }
 
-    while (binForm > 0) {
-        if (binForm % 2 == 1) {
-            answer *= x;
-        }
-        x *= x;
-        binForm /= 2;
+    int suffix = 1;
+    // suffix
+    for (int i = n - 2; i >= 0; i--) {
+        suffix *= nums[i + 1]; // ith suffix
+        ans[i] *= suffix;
     }
 
-    return answer;
+    return ans;
 }
 
 int main() {
-    cout << myPow(2, 10) << endl;   // 1024
-    cout << myPow(2, -3) << endl;   // 0.125
-    cout << myPow(-2, 5) << endl;   // -32
+    vector<int> nums = {1, 2, 3, 4};
+    vector<int> result = productExceptSelf(nums);
+
+    cout << "Result: ";
+    for (int x : result) {
+        cout << x << " ";
+    }
+    cout << endl;
+
     return 0;
 }
