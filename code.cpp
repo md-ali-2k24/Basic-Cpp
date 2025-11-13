@@ -1,36 +1,56 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-int singleElementInSortedArray(vector<int>& nums) {
-    int start = 0, end = nums.size() - 1;
-    int n = nums.size();
-
-    while (start <= end) {
-        int mid = start + (end - start) / 2;
-
-        // Edge cases: check first or last element
-        if (mid == 0 && nums[mid] != nums[mid + 1]) return nums[mid];
-        if (mid == n - 1 && nums[mid] != nums[mid - 1]) return nums[mid];
-
-        // If mid is the single element
-        if (nums[mid - 1] != nums[mid] && nums[mid] != nums[mid + 1]) {
-            return nums[mid];
+bool isValid(vector<int> &arr, int n, int m, int maxAllowedPages){
+    int students = 1, pages = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] > maxAllowedPages){
+            return false;
         }
 
-        // Decide which side to go
-        if ((mid % 2 == 0 && nums[mid] == nums[mid + 1]) ||
-            (mid % 2 == 1 && nums[mid] == nums[mid - 1])) {
-            start = mid + 1;  // go right
-        } else {
-            end = mid - 1;    // go left
+        if (pages + arr[i] <= maxAllowedPages){
+            pages += arr[i];
+        } else{
+            students++;
+            pages = arr[i];
         }
     }
-
-    return -1;
+    
+    return students > m ? false : true;
 }
 
-int main() {
-    vector<int> nums = {1,1,2,2,3,4,4,5,5};
-    cout << "Single element is: " << singleElementInSortedArray(nums) << endl;
+int allocateBooks(vector<int> &arr, int n, int m){
+    if (m > n){
+        return -1;
+    }
+    int sum = 0;
+    for (int i = 0; i < n; i++){
+        sum += arr[i];
+    }
+
+    int ans = -1;
+    int st = 0, end = sum;
+    while (st <= end)
+    {
+        int mid = st + (end - st) / 2;
+        if (isValid(arr, n, m, mid))
+        {
+            ans = mid;
+            end = mid - 1;
+        } else {
+            st = mid +1;
+        }
+    }
+    return ans;
+}
+
+int main(){
+    vector <int> arr = {2, 1, 3, 4};
+    int n = 4, m = 2;
+
+    cout << allocateBooks(arr, n, m) << endl;
+
     return 0;
 }
