@@ -1,55 +1,55 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-bool isPossible(vector<int> &arr, int n, int m, int maxAllowedTime){
-    int painterCount = 1;
-    int timeSum = 0;
+bool isPossiable(vector<int> arr, int N, int C, int minAllowedDistance) {
+    int cowsPlaced = 1;
+    int lastPosition = arr[0];
 
-    for (int i = 0; i < n; i++){
-        if (timeSum + arr[i] <= maxAllowedTime){
-            timeSum += arr[i];
+    for (int i = 0; i < N; i++)
+    {
+        if (arr[i]-lastPosition >= minAllowedDistance)
+        {
+            cowsPlaced++;
+            lastPosition = arr[i];
         }
-        else{
-            painterCount++;
-            timeSum = arr[i];
-        }
+
+        if (cowsPlaced == C)
+        {
+            return true;
+        }   
     }
-    return painterCount <= m;
+    return false;
 }
 
-int minTimeToPaint(vector<int> &arr, int n, int m){
-    int sum = 0, maxValue = INT8_MIN;
+int getDistance(vector<int> arr, int N, int C) {
+    sort(arr.begin(), arr.end());
+    int start = 1, end = arr[N-1]-arr[0], answer = -1;
 
-    for (int i = 0; i < n; i++){
-        sum += arr[i];
-        maxValue = max(maxValue, arr[i]);
-    }
-
-    int start = maxValue, end = sum;
-    int ans = -1;
-
-    while (start <= end){
+    while (start <= end)
+    {
         int mid = start + (end - start) / 2;
-
-        if (isPossible(arr, n, m, mid)){
-            ans = mid;
-            end = mid - 1;
-        }
-        else{
+        if (isPossiable(arr, N, C, mid))
+        {
+            answer = mid;
             start = mid + 1;
+        }
+        else
+        {
+            end = mid - 1;
         }
     }
     
-    return ans;
+    return answer;
 }
 
-int main()
-{
-    vector<int> arr = {40, 30, 10, 20};
-    int n = 4, m = 2;
+int main(){
+    vector<int> arr = {1, 2, 8, 4, 9};
+    int N = 5, C = 3;
 
-    cout << minTimeToPaint(arr, n, m) << endl;
+    cout << getDistance(arr, N, C) << endl;
 
     return 0;
 }
+
