@@ -1,38 +1,28 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 using namespace std;
-
-void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-        int idx = m + n - 1;
-        int i = m - 1;
-        int j = n - 1;
-        while (i >= 0 && j >= 0){
-            if (nums1[i] > nums2[j]){
-                nums1[idx--] = nums1[i--];
-            } else {
-                nums1[idx--] = nums2[j--];
-            }
-        }
-        while (j >= 0) {
-            nums1[idx--] = nums2[j--];
-        }
-        
+void reverseString(vector<char> &str){
+    int start = 0;
+    int end = (int)str.size() - 1;
+    while (start < end) {
+        swap(str[start], str[end]);
+        start++;
+        end--;
     }
+}
 
-int main()
-{
-   vector<int> num1 = {1, 2, 3, 0, 0, 0};
-   int m = 3;
-   vector<int> num2 = {4, 5, 6};
-    int n = 3;
-
-    merge(num1, m, num2, n);
-
-    for (int num : num1) {
-         cout << num << ", ";
+void printString(vector<char> &str){
+    for(char c : str){
+        cout << c;
     }
     cout << endl;
-    
+}
+int main(){
+    vector<char> str = {'h','e','l','l','o'};
+    reverseString(str);
+
+    printString(str);
     return 0;
 }
