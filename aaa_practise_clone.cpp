@@ -154,7 +154,7 @@ int main()
 }
 
 
-/// Calculate sum of digits of a number 
+/// Calculate sum of digits of a number
 
 #include <iostream>
 #include <vector>
@@ -235,7 +235,7 @@ int main()
 }
     //Time coplexsity is 0(n)
 
-//Fine the pair of two sum 
+//Fine the pair of two sum
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -279,7 +279,7 @@ int main() {
 }
 
 
-//Printing the SUB Arrays 
+//Printing the SUB Arrays
 
 #include <iostream>
 #include <vector>
@@ -446,9 +446,9 @@ vector<int> pairSum(vector<int> numbers, int target){
                 answer.push_back(j);
 
             }
-            
+
         }
-        
+
     }
     return answer;
 }
@@ -460,7 +460,7 @@ int main(){
     vector<int> ans = pairSum(vec, target);
     cout<<ans[0] << " "<<ans[1]<<endl;
 
-    
+
     return 0;
 }
 
@@ -531,7 +531,7 @@ int main()
     //0(n)
 
 
-//mazority Elements 
+//mazority Elements
 
 #include <iostream>
 #include <algorithm>
@@ -627,7 +627,7 @@ int main() {
     //0(n)
 
 
-//Contaier with most water 
+//Contaier with most water
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -659,7 +659,7 @@ int main()
 }
 
 
-//Product of Array Except self 
+//Product of Array Except self
  #include <bits/stdc++.h>
 using namespace std;
 
@@ -992,7 +992,7 @@ int main()
 
 // // // Stack:
 ======With vector :
-#include <iostream> 
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -1030,7 +1030,7 @@ int main(){
         s.pop();
     }
     cout << endl;
-    
+
     return 0;
 }
 
@@ -1040,7 +1040,7 @@ int main(){
 
 //========================
 
-#include <iostream> 
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -1086,14 +1086,14 @@ int main(){
         s.pop();
     }
     cout << endl;
-    
+
     return 0;
 }
 
 
 // // // Stcak with List:
 
-#include <iostream> 
+#include <iostream>
 #include <vector>
 #include <list>
 using namespace std;
@@ -1132,13 +1132,13 @@ int main(){
         s.pop();
     }
     cout << endl;
-    
+
     return 0;
 }
 
 // // // Basic mode of Stack
 
-#include <iostream> 
+#include <iostream>
 #include <vector>
 #include <list>
 #include <stack>
@@ -1158,14 +1158,14 @@ int main(){
         s.pop();
     }
     cout << endl;
-    
+
     return 0;
 }
-    
+
 
 // // // Queue
 
-#include <iostream> 
+#include <iostream>
 #include <vector>
 #include <list>
 #include <stack>
@@ -1186,7 +1186,7 @@ class Queue {
     Node* head;
     Node* tail;
 
-public: 
+public:
     Queue(){
         head = tail = NULL;
     }
@@ -1242,14 +1242,14 @@ int main(){
     }
 
     cout << "NULL"<< endl;
-    
-    
+
+
     return 0;
 }
 
 // // Deque
 
-#include <iostream> 
+#include <iostream>
 #include <vector>
 #include <list>
 #include <stack>
@@ -1272,13 +1272,13 @@ int main(){
     }
 
     cout << "NULL"<< endl;
-    
-    
+
+
     return 0;
 }
 
 // // // Bianry Tree Trevarsal
-#include <iostream> 
+#include <iostream>
 #include <vector>
 #include <list>
 #include <queue>
@@ -1373,7 +1373,7 @@ void levelOrder(Node* root){
         {
             q.push(curr->right);
         }
-        
+
     }
 
     cout << endl;
@@ -1398,8 +1398,8 @@ vector<int> preorder = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
     return 0;
 }
 
-// Bianry Tree Trevarsal Binary Search Tree 
-#include <iostream> 
+// Bianry Tree Trevarsal Binary Search Tree
+#include <iostream>
 #include <vector>
 #include <queue>
 using namespace std;
@@ -1453,7 +1453,7 @@ void  inOrder(Node* root){
     inOrder(root->right);
 }
 
-// Post Order Treversal     left -> right -> root 
+// Post Order Treversal     left -> right -> root
 void postOrder(Node* root){
     if (root == NULL){
         return;
@@ -1493,7 +1493,7 @@ void levelOrder(Node* root){
         {
             q.push(curr->right);
         }
-        
+
     }
 
     cout << endl;
@@ -1532,7 +1532,7 @@ int sumOfNodes(Node* root){
     int leftSum = sumOfNodes(root->left);
     int rightsum = sumOfNodes(root->right);
     return leftSum+rightsum+root->data;
-    
+
 }
 
 int main(){
@@ -1558,7 +1558,7 @@ vector<int> preorder = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
 }
 
 
-// // BST Binary scarch tree 
+// // BST Binary scarch tree
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -1657,7 +1657,7 @@ Node* delNode(Node* root, int key) {  // key => the key to delete
             root->right = delNode(root->right, IS->data);
         }
     }
-    
+
     return root;  // Fixed: Always return root for the recursive cases
 }
 
@@ -1744,7 +1744,7 @@ int fibonacci (int n){
     }
 
     return fibonacci(n-1) + fibonacci(n-2);
-    
+
 }
 
 int main() {
@@ -1765,7 +1765,7 @@ int isSorted (vector<int> arr, int n){
     {
         return true;
     }
-    
+
     return arr[n-1] >= arr[n-2] && isSorted(arr, n-1);
 }
 
@@ -1777,7 +1777,7 @@ int main() {
     return 0;
 }
 
-//Binary Scarch by recuration 
+//Binary Scarch by recuration
 
 #include <iostream>
 #include <vector>
@@ -1877,7 +1877,7 @@ public:
     void dfs() {
         int src = 0;
         vector<bool> visited(V, false);
-        
+
         dfsHelper(src,visited);
         cout << endl;
     }
@@ -1894,7 +1894,7 @@ public:
     }
 };
 
-// problem Solving With hashing 
+// problem Solving With hashing
 vector<int> twoSum(vector<int>& arr, int tar){
     unordered_map<int, int> m;
     vector<int> ans;
@@ -1937,7 +1937,7 @@ vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid){
             }
             s.insert(grid[i][j]);
         }
-        
+
     }
     expectedSum = (n*n) * (n*n +1)/2;
     b = expectedSum + a - actualSum;
@@ -1946,24 +1946,24 @@ vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid){
 }
 
 int main() {
-   
+
     Graph g(5);
-    
+
     g.addEdge(0, 1);
     g.addEdge(1, 2);
     g.addEdge(1, 3);
     g.addEdge(2, 4);
-    
+
     cout << "Adjacency List:" << endl;
     g.printAdjList();
-    
+
     cout << "BFS Traversal: ";
     g.bfs();
-    
+
     cout << "DFS Traversal: ";
     g.dfs();
-    
-    
+
+
 
     vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
@@ -1992,9 +1992,186 @@ int main() {
 
     cout << "Repeated: " << result[0] << endl;
     cout << "Missing: " << result[1] << endl;
-    
+
     return 0;
 }
+
+////////Reverse an Array of characters
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+using namespace std;
+void reverseString(vector<char> &s){
+    int start = 0;
+    int end = s.size() - 1;
+
+    while (start < end){
+        swap(s[start], s[end]);
+        start++;
+        end--;
+    }
+}
+
+void printString(vector<char> &s){
+    for(char c : s){
+        cout << c;
+    }
+    cout << endl;
+}
+int main(){
+    vector<char> s = { 'h', 'e', 'l', 'l', 'o'};
+    printString(s);
+    reverseString(s);
+    printString(s);
+    return 0;
+}
+
+////////Comparison of character arrays and a String revers
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+using namespace std;
+void reverseString(vector<char> &s){
+    int start = 0;
+    int end = s.size() - 1;
+
+    while (start < end){
+        swap(s[start], s[end]);
+        start++;
+        end--;
+    }
+}
+
+void printString(vector<char> &s){
+    for(char c : s){
+        cout << c;
+    }
+    cout << endl;
+}
+int main(){
+    vector<char> s = { 'h', 'e', 'l', 'l', 'o'};
+    string str = "hello";
+
+    cout << str << endl;
+    reverse(str.begin(), str.end());
+    cout << str << endl;
+
+    printString(s);
+    reverseString(s);
+    printString(s);
+    return 0;
+}
+//////////////Palindrome Checking
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+using namespace std;
+bool isAlphaNum(char c){
+    return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
+}
+bool isPalindrome(string s){
+    string str = s;
+    int start = 0, end = str.length() - 1;
+
+    while (start < end){
+        if (!isAlphaNum(str[start])){
+            start++;
+        }
+        if (!isAlphaNum(str[end])){
+            end--;
+        }
+        if (tolower(str[start]) != tolower(str[end])){
+                return false;
+            }
+            start++;
+            end--;
+        }
+    }
+    return true;
+}
+
+int main()
+{
+    string s = " ";
+    cout << isPalindrome(s) << endl;
+
+    return 0;
+}
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+using namespace std;
+bool isAlphaNum(char c)
+{
+    return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
+}
+bool isPalindrome(string s)
+{
+    string str = s;
+    int start = 0, end = str.length() - 1;
+
+    while (start < end)
+    {
+        if (!isAlphaNum(str[start]))
+        {
+            start++;
+        }
+        else if (!isAlphaNum(str[end]))
+        {
+            end--;
+        }
+        else
+        {
+            if (tolower(str[start]) != tolower(str[end]))
+            {
+                return false;
+            }
+            start++;
+            end--;
+        }
+    }
+    return true;
+}
+
+int main()
+{
+    string s = "ba@@@ab";
+    cout << isPalindrome(s) << endl;
+
+    return 0;
+}
+
+///////removeOccurrences
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+string removeOccurrences(string s, string part){
+    while (s.length() > 0 && s.find(part) < s.length()){
+        int start = s.find(part), end = part.length();
+        s.erase(start, end);
+    }
+    return s;
+}
+int main(){
+    string s = "axxxxyyyyb";
+    string part = "xy";
+
+    cout << removeOccurrences(s, part) << endl;
+
+    return 0;
+}
+
+
+////
 
 
 

@@ -3,26 +3,19 @@
 #include <algorithm>
 #include <string>
 using namespace std;
-void reverseString(vector<char> &str){
-    int start = 0;
-    int end = (int)str.size() - 1;
-    while (start < end) {
-        swap(str[start], str[end]);
-        start++;
-        end--;
-    }
-}
 
-void printString(vector<char> &str){
-    for(char c : str){
-        cout << c;
+string removeOccurrences(string s, string part){
+    while (s.length() > 0 && s.find(part) < s.length()){
+        int start = s.find(part), end = part.length();
+        s.erase(start, end);
     }
-    cout << endl;
+    return s;
 }
 int main(){
-    vector<char> str = {'h','e','l','l','o'};
-    reverseString(str);
+    string s = "axxxxyyyyb";
+    string part = "xy";
 
-    printString(str);
+    cout << removeOccurrences(s, part) << endl;
+
     return 0;
 }
