@@ -1,21 +1,26 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
 #include <string>
 using namespace std;
 
-string removeOccurrences(string s, string part){
-    while (s.length() > 0 && s.find(part) < s.length()){
-        int start = s.find(part), end = part.length();
-        s.erase(start, end);
-    }
-    return s;
-}
-int main(){
-    string s = "axxxxyyyyb";
-    string part = "xy";
+int main() {
+    string s;
+    cin >> s;
 
-    cout << removeOccurrences(s, part) << endl;
+    string target = "hello";
+    int j = 0;
+
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == target[j]) {
+            j++;
+        }
+        if (j == 5) break;
+    }
+
+    if (j == 5) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
 
     return 0;
 }
