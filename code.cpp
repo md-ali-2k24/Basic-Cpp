@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 using namespace std;
 
 int main(){
@@ -17,20 +16,17 @@ int main(){
             if (s[j] == '0'){
                 count++;
             }else {
-                for (int l = j+1; l < k+j; l++){
+                for (int l = j+1; l <= k+j; l++){
                     if (s[l] == '1'){
-                        j = k;
-                        continue;
+                        j = l;
                     }
                 }
-                j += k;
+                j = j+k;
             }
         }
 
-        cout << count << endl; //1 11 3 01010010000  
+        cout << count << endl; 
     }
 
     return 0;
 }
-
-
