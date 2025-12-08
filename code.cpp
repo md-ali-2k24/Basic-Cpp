@@ -1,31 +1,78 @@
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 int main(){
     int t;
     cin >> t;
-    for ( int i = 0; i < t; i++){
-        int n, k;
-        cin >> n >> k;
-        string s;
-        cin >> s;
-        
-        int count = 0;
+
+    while (t--) {
+        long long n, k = 0, num = 0;
+        cin >> n;
+
+        vector<long long> a(n);
+        vector<long long> b(n);
+
+        for (int i = 0; i < n; i++)
+            cin >> a[i];
+
+        for (int i = 0; i < n; i++)
+            cin >> b[i];
+
         for (int j = 0; j < n; j++){
-            if (s[j] == '0'){
-                count++;
-            }else {
-                for (int l = j+1; l <= k+j; l++){
-                    if (s[l] == '1'){
-                        j = l;
-                    }
+            if(a[j] < 0 && b[j] < 0){
+                if ((a[j] % 2 == 0 && b[j] % 2 == 0) || 
+                    (a[j] % 2 != 0 && b[j] % 2 != 0)){
+                    num = min(a[j], b[j]);
+                    if (a[j] == num)
+                        k = k - a[j];
+                    else
+                        k = b[j] - k;
                 }
-                j = j+k;
+                else if (a[j] % 2 == 0 && b[j] % 2 != 0){
+                    k = k - a[j];
+                }
+            }
+            else if(a[j] >= 0 && b[j] < 0){
+                if (a[j] % 2 == 0 && b[j] % 2 != 0){
+                    k = b[j] - k;
+                }
+                else if (a[j] % 2 != 0 && b[j] % 2 != 0){
+                    num = min(a[j], -b[j]); //
+                    if (a[j] == num)
+                        k = k - a[j];
+                    else
+                        k = b[j] - k;
+                }
+            }
+            else if(a[j] >= 0 && b[j] >= 0){
+                if (a[j] % 2 == 0 && b[j] % 2 == 0){
+                    num = max(a[j], b[j]);
+                    if (a[j] == num)
+                        k = k - a[j];
+                    else
+                        k = b[j] - k;
+                }
+                else if (a[j] % 2 != 0 && b[j] % 2 == 0){
+                    k = b[j] - k;
+                }
+                else if (a[j] % 2 != 0 && b[j] % 2 != 0){
+                    num = max(a[j], b[j]);
+                    if (a[j] == num)
+                        k = k - a[j];
+                    else
+                        k = b[j] - k;
+                }
+            }
+            else if(a[j] < 0 && b[j] >= 0){
+                if (a[j] % 2 != 0 && b[j] % 2 == 0){
+                    k = k - a[j];
+                }
             }
         }
-
-        cout << count << endl; 
+        
+        cout << k << endl;
     }
 
     return 0;
