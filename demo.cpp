@@ -3,17 +3,24 @@
 #include <algorithm>
 using namespace std;
 
-int main()
-{
-    int a, b;
-    cin >> a >> b;
+int main(){
+    int t;
+    cin >> t;
 
-    cout << a << " & " << b << " ";
+    for (int i = 0; i < t; i++){
+        int n;
+        cin >> n;
 
-    if (a >= 0 && b < 0)
-        if (a % 2 != 0 && b % 2 != 0){
-            cout << max(a, -b);
+        vector<long long> a(n);
+        long long num;
+
+        for (int j = 0; j < n; j++){
+            cin >> a[j];
         }
+
+        num =* max_element(a.begin(), a.end());
+        cout << num*n << endl;
+    }
 
     return 0;
 }
